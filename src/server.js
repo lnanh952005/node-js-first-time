@@ -2,17 +2,21 @@
 const express = require('express');
 const path = require('path');
 const app = express();// app cua express
-const port = 8080;
+const webrouter = express.Router();
+const configViewEngine = require('./config/viewEngine');
+const { router } = require('./routes/web');
+require('dotenv').config;
 
-app.set('views', path.join(__dirname,'views'));
-app.set('view engine', 'ejs');
+const { getHomePage } = require('./controllers/homeController');
+
+const port = process.env.PORT || 8888;
+const hostname = process.env.HOST_NAME;
+
+configViewEngine(app);
 //khai báo route
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-app.get('/abc', (req, res) => {
-    res.render('sample.ejs');
-})
-app.listen(port, () => {
+
+app.use('/',getHomePage);
+
+app.listen(port,hostname, () => {
   console.log(`Example app listening on port ${port}`)
 })
