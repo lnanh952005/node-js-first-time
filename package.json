@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./src/server.js"
+    "start": "nodemon ./src/server.js",
+    "dev": "nodemon ./src/index.js"
   },
   "keywords": [],
   "author": "le nhat anh",
@@ -12,9 +13,10 @@
   "description": "le nhat anh backend dev",
   "dependencies": {
     "dotenv": "16.0.3",
-    "ejs": "3.1.8",
+    "ejs": "3.1.10",
     "express": "4.18.2",
-    "mysql2": "2.3.3"
+    "mysql2": "2.3.3",
+    "pug": "3.0.3"
   },
   "devDependencies": {
     "nodemon": "2.0.20"
